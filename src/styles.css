@@ -141,6 +141,15 @@ header {
   margin: 5px 0px 20px 0px;
 }
 
+.details img {
+  clip-path: circle(50% at 50% 50%);
+  width: 200px;
+  min-height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .carousel {
   display: flex;
   justify-content: space-around;
