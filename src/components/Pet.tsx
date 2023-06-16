@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 interface PetProps {
 	[k: string]: string;
 }
@@ -8,7 +10,7 @@ const Pet = (props: PetProps) => {
 	if (images.length) hero = images[0];
 
 	return (
-		<a href={`/details/${id}`} className='pet'>
+		<Link to={`/details/${id}`} className='pet'>
 			<div className='image-container'>
 				<img src={hero} alt={name} />
 			</div>
@@ -18,7 +20,7 @@ const Pet = (props: PetProps) => {
 					{animal} - {breed} - {location}
 				</h2>
 			</div>
-		</a>
+		</Link>
 	);
 };
 
