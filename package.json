@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Pet Adoption",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashleegaf/pet-adoption"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
