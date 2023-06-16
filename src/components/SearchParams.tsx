@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import Pet from './Pet';
+import useBreedList from '../utils/useBreedList';
 
 const ANIMALS = ['bird', 'cat', 'dog', 'rabbit', 'reptile'];
-const BREEDS: string[] = [];
 
 const SearchParams = () => {
 	const [location, setLocation] = useState('');
 	const [animal, setAnimal] = useState('');
 	const [breed, setBreed] = useState('');
 	const [pets, setPets] = useState([]);
+  const [breeds] = useBreedList(animal);
 
 	const requestPets = async () => {
 		const response = await fetch(
@@ -19,10 +20,10 @@ const SearchParams = () => {
 		setPets(data.pets);
 	};
 
-	// useEffect(() => {
-	// 	requestPets();
-	// // eslint-disable-next-line react-hooks/exhaustive-deps
-	// }, []);
+	useEffect(() => {
+		requestPets();
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<div className='search-params'>
@@ -61,12 +62,12 @@ const SearchParams = () => {
 					Breed
 					<select
 						id='breed'
-						disabled={BREEDS.length === 0}
+						disabled={breeds.length === 0}
 						value={breed}
 						onChange={(e) => setBreed(e.target.value)}
 					>
 						<option />
-						{BREEDS.map((breed) => (
+						{breeds.map((breed) => (
 							<option key={breed}>{breed}</option>
 						))}
 					</select>
