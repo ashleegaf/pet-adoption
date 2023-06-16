@@ -17,7 +17,7 @@ const SearchParams = () => {
 
 	const requestPets = async () => {
 		const response = await fetch(
-			`http://pets-v2.dev-apis.com/pets?animals=${animal}&location=${location}&breed=${breed}`
+			`http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
 		);
 		const data: PetProps = await response.json();
 
@@ -78,9 +78,7 @@ const SearchParams = () => {
 				</label>
 				<button>Submit</button>
 			</form>
-			<div>
-				<Results pets={pets} />
-			</div>
+			<Results pets={pets} />
 		</div>
 	);
 };
