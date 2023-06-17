@@ -141,18 +141,10 @@ header {
   margin: 5px 0px 20px 0px;
 }
 
-.details img {
-  clip-path: circle(50% at 50% 50%);
-  width: 200px;
-  min-height: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .carousel {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   height: 400px;
   margin-top: 8px;
@@ -160,11 +152,8 @@ header {
 
 .carousel > img {
   max-width: 45%;
-  max-height: 400px;
-}
-
-.carousel-smaller {
-  width: 50%;
+  max-height: 275px;
+  border-radius: 50%;
 }
 
 .carousel-smaller > img {
