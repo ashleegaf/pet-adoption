@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 // returns the same div on every re-render
-const Modal = ({ children }: { children: React.ReactNode }) => {
+const Modal = ({ children }: { children: ReactNode }) => {
 	const elRef = useRef<HTMLDivElement | null>(null);
 	if (!elRef.current) {
 		elRef.current = document.createElement('div');
@@ -18,7 +18,7 @@ const Modal = ({ children }: { children: React.ReactNode }) => {
 		};
 	}, []);
 
-	return createPortal(<div>{children}</div>, elRef.current);
+	return createPortal(children, elRef.current);
 };
 
 export default Modal;
