@@ -40,20 +40,27 @@ const App = () => {
 	});
 
 	return (
-		<BrowserRouter>
-			{/* expose cache and adopted pet context to children */}
-			<QueryClientProvider client={queryClient}>
-				<AdoptedPetContext.Provider value={adoptedPetHook}>
-					<header>
-						<Link to='/'>Adopt Me!</Link>
-					</header>
-					<Routes>
-						<Route path='/details/:id' element={<PetDetails />} />
-						<Route path='/' element={<SearchParams />} />
-					</Routes>
-				</AdoptedPetContext.Provider>
-			</QueryClientProvider>
-		</BrowserRouter>
+		<div className='m-0 p-0' style={{ backgroundColor: '#f4faf8' }}>
+			<BrowserRouter>
+				{/* expose cache and adopted pet context to children */}
+				<QueryClientProvider client={queryClient}>
+					<AdoptedPetContext.Provider value={adoptedPetHook}>
+						<header className='mb-10 w-full bg-emerald-600 p-7 text-center'>
+							<Link
+								to='/'
+								className='text-6xl text-white hover:text-emerald-900'
+							>
+								Adopt Me!
+							</Link>
+						</header>
+						<Routes>
+							<Route path='/details/:id' element={<PetDetails />} />
+							<Route path='/' element={<SearchParams />} />
+						</Routes>
+					</AdoptedPetContext.Provider>
+				</QueryClientProvider>
+			</BrowserRouter>
+		</div>
 	);
 };
 

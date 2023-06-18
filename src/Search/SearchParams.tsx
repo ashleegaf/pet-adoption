@@ -22,8 +22,9 @@ const SearchParams = () => {
 	const pets = results?.data?.pets ?? [];
 
 	return (
-		<div className='search-params'>
+		<div className='my-0 mx-auto flex w-11/12 justify-between'>
 			<form
+				className='mb-10 flex flex-col items-center justify-center rounded-lg bg-emerald-50 p-10 shadow-lg'
 				onSubmit={(e) => {
 					e.preventDefault();
 					const formData = new FormData(e.target as HTMLFormElement);
@@ -42,13 +43,20 @@ const SearchParams = () => {
 				) : null}
 				<label htmlFor='location'>
 					Location
-					<input id='location' name='location' placeholder='Location' />
+					<input
+						type='text'
+						id='location'
+						name='location'
+						className='search-input'
+						placeholder='Location'
+					/>
 				</label>
 				<label htmlFor='animal'>
 					Animal
 					<select
 						id='animal'
 						value={animal}
+						className='search-input'
 						onChange={(e) => {
 							setAnimal(e.target.value);
 						}}
@@ -61,14 +69,21 @@ const SearchParams = () => {
 				</label>
 				<label htmlFor='breed'>
 					Breed
-					<select id='breed' name='breed' disabled={breeds.length === 0}>
+					<select
+						id='breed'
+						name='breed'
+						className='search-input grayed-out-disabled'
+						disabled={breeds.length === 0}
+					>
 						<option />
 						{breeds.map((breed) => (
 							<option key={breed}>{breed}</option>
 						))}
 					</select>
 				</label>
-				<button>Submit</button>
+				<button className='color rounded border-none bg-emerald-600 px-6 py-2 text-white hover:opacity-50'>
+					Submit
+				</button>
 			</form>
 			<PetList pets={pets} />
 		</div>
